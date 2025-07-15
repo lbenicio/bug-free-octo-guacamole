@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Leonardo Benicio graduation project'
+copyright = '2025, Leonardo Benicio'
+author = 'Leonardo Benicio'
 
 release = '0.1'
-version = '0.1.0'
+version = '0.0.1'
 
 # -- General configuration
 
