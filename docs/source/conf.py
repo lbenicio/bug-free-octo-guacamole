@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'Leonardo Benicio graduation project'
+project = 'lumache'
 copyright = '2025, Leonardo Benicio'
 author = 'Leonardo Benicio'
 
