@@ -36,17 +36,12 @@ jobs:
           # install pip=>20.1 to use "pip cache dir"
           python3 -m pip install --upgrade pip
 
-      - name: Switch build dir
-        run: |
-          cd docs;
-          ls
-
       - name: Get pip cache dir
         id: pip-cache
         run: echo "::set-output name=dir::$(pip cache dir)"
 
       - name: Install dependencies
-        run: python3 -m pip install -r ./requirements.txt
+        run: python3 -m pip install -r ./docs/requirements.txt
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -56,7 +51,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - run: mkdocs build
+      - run: cd docs && mkdocs build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
