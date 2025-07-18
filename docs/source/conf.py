@@ -7,7 +7,7 @@ copyright = '2025, Leonardo Benicio'
 author = 'Leonardo Benicio'
 
 release = '0.1'
-version = '0.0.1'
+version = '0.0.2'
 
 # -- General configuration
 
