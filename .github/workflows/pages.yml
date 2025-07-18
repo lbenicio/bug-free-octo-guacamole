@@ -29,19 +29,20 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.10'
 
       - name: Upgrade pip
         run: |
           # install pip=>20.1 to use "pip cache dir"
-          python3 -m pip install --upgrade pip
+          python3 -m pip install --upgrade pip setuptools
+
+      - name: Install sphinx
+        run: |
+          python3 -m pip install --upgrade sphinx
 
       - name: Get pip cache dir
         id: pip-cache
         run: echo "::set-output name=dir::$(pip cache dir)"
-
-      - name: Install dependencies
-        run: python3 -m pip install -r ./docs/requirements.txt
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -51,12 +52,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - run: cd docs && mkdocs build
+      - name: Install dependencies
+        run: python3 -m pip install -r ./docs/requirements.txt
+
+      - name: Build
+        run: |
+          python3 -m sphinx -T -b html -d _build/doctrees -D language=en ./docs ./html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./site
+          path: ./html
 
   # Deployment job
   deploy:
