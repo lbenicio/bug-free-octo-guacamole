@@ -55,6 +55,9 @@ jobs:
       - name: Install dependencies
         run: python3 -m pip install -r ./docs/requirements.txt
 
+      - name: Install Book theme
+        run: python3 -m pip install --upgrade sphinx-book-theme
+
       - name: Build
         run: |
           python3 -m sphinx -T -b html -d _build/doctrees -D language=en ./docs/source ./html
