@@ -42,7 +42,7 @@ jobs:
         run: |
           docker buildx build \
           --platform linux/arm64/v8,linux/amd64 \
-          --tag ghcr.io/lbenicio/ms-tibia-v1:latest \
-          --tag ghcr.io/lbenicio/ms-tibia-v1:${{ github.sha }} \
+          --tag ghcr.io/lbenicio/bug-free-octo-guacamole:latest \
+          --tag ghcr.io/lbenicio/bug-free-octo-guacamole:${{ github.sha }} \
           --file ./Dockerfile \
           --output type=image,push=true .
