@@ -1,0 +1,27 @@
+name: Release new version
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: release-on-master-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: CupOfTea696/gh-action-auto-release@v1.0.2
+        with:
+          title: "release: v$version"
+          tag: "v$semver"
+          draft: false
+          regex: "/^release: v#{semver}$/i"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
