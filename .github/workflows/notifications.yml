@@ -25,8 +25,8 @@ jobs:
       - name: Send Telegram message
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_CHAT_ID }}
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          to: ${{ secrets.CHAT_ID }}
+          token: ${{ secrets.BOT_TOKEN }}
           format: markdown
           message: |
             Code Deployed: ${{ github.repository }}
