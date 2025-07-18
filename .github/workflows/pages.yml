@@ -37,10 +37,6 @@ jobs:
           # install pip=>20.1 to use "pip cache dir"
           python3 -m pip install --upgrade pip setuptools
 
-      - name: Install sphinx
-        run: |
-          python3 -m pip install --upgrade sphinx
-
       - name: Get pip cache dir
         id: pip-cache
         run: echo "::set-output name=dir::$(pip cache dir)"
@@ -55,9 +51,6 @@ jobs:
 
       - name: Install dependencies
         run: python3 -m pip install -r ./docs/requirements.txt
-
-      - name: Install Book theme
-        run: python3 -m pip install --upgrade sphinx-book-theme
 
       - name: Build
         run: |
