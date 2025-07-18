@@ -2,10 +2,10 @@
 .github
 .ropeproject
 .readthedocs.yaml
+docs
 Dockerfile
 pyproject.toml
 README.rst
-requirements.txt
 make.bat
 Makefile
 LICENSE.txt

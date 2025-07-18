@@ -5,11 +5,11 @@ FROM python:3.11-alpine AS builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY ./requirements.txt ./
+COPY requirements.txt requirements.txt
 
 # Install dependencies
 RUN python3 -m pip install --upgrade pip setuptools
-RUN python3 -m pip install -r ./requirements.txt
+RUN python3 -m pip install -r requirements.txt
 
 # Copy the rest of the application source code
 COPY src/ ./
