@@ -5,14 +5,14 @@ FROM python:3.11-alpine AS builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY docs/requirements.txt ./
+COPY ./requirements.txt ./
 
 # Install dependencies
 RUN python3 -m pip install --upgrade pip setuptools
 RUN python3 -m pip install -r ./requirements.txt
 
 # Copy the rest of the application source code
-COPY docs/source .
+COPY src/ ./
 
 # Build the Next.js application for static export
 RUN python3 -m sphinx -T -b html -d _build/doctrees -D language=en . ./html

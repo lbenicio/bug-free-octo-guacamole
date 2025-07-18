@@ -49,11 +49,11 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
-        run: python3 -m pip install -r ./docs/requirements.txt
+        run: python3 -m pip install -r ./requirements.txt
 
       - name: Build
         run: |
-          python3 -m sphinx -T -b html -d _build/doctrees -D language=en ./docs/source ./html
+          python3 -m sphinx -T -b html -d _build/doctrees -D language=en ./src ./html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
