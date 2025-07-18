@@ -9,8 +9,6 @@ COPY docs/requirements.txt ./
 
 # Install dependencies
 RUN python3 -m pip install --upgrade pip setuptools
-RUN python3 -m pip install --upgrade sphinx
-RUN python3 -m pip install --upgrade sphinx-book-theme
 RUN python3 -m pip install -r ./requirements.txt
 
 # Copy the rest of the application source code
