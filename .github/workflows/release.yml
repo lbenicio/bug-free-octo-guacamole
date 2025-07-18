@@ -2,7 +2,7 @@ name: Release new package version
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 concurrency:
