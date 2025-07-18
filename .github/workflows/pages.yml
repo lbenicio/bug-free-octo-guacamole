@@ -3,7 +3,7 @@ name: github pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['master']
+    branches: ['main']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -44,7 +44,7 @@ jobs:
         run: python3 -m pip install -r ./requirements.txt
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
