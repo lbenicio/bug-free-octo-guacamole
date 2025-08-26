@@ -56,7 +56,7 @@ jobs:
           python3 -m sphinx -T -b html -d _build/doctrees -D language=en ./src ./html
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./html
 
